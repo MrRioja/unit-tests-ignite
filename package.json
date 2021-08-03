@@ -16,6 +16,7 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
+    "supertest": "^6.1.4",
     "ts-jest": "^27.0.4",
     "tsyringe": "^4.5.0",
     "typeorm": "^0.2.31",
