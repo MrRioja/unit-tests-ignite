@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
-import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
-import { IStatementsRepository } from "@modules/statements/repositories/IStatementsRepository";
+import { IUsersRepository } from "../../../users/repositories/IUsersRepository";
+import { IStatementsRepository } from "../../repositories/IStatementsRepository";
 import { CreateStatementError } from "../createStatement/CreateStatementError";
 import { ICreateStatementDTO } from "../createStatement/ICreateStatementDTO";
 
@@ -17,10 +17,10 @@ class CreateTransferUseCase {
 
   async execute({
     user_id,
-    sender_id,
-    type,
-    amount,
     description,
+    amount,
+    type,
+    sender_id,
   }: ICreateStatementDTO) {
     const user = await this.usersRepository.findById(user_id);
     const sender_user = await this.usersRepository.findById(sender_id);
@@ -43,10 +43,10 @@ class CreateTransferUseCase {
 
     const statementOperation = await this.statementsRepository.create({
       user_id,
-      sender_id,
-      type,
-      amount,
       description,
+      amount,
+      type,
+      sender_id,
     });
 
     return statementOperation;
