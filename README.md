@@ -65,7 +65,7 @@ $ yarn test
 
 <img align="left" src="https://profilinator.rishav.dev/skills-assets/express-original-wordmark.svg" alt="Express.js" height="75"/>
 
-<img align="left" src="http://assets.stickpng.com/thumbs/62a765c8bd73a4af5c5d4fbc.png" alt="Jest" height="75"/>
+<img align="left" src="https://images.velog.io/images/euneun/post/e030edaf-3157-480c-9b86-fc4e7846f9c5/jest.png" alt="Jest" height="75"/>
 
 <br><br><br>
 
