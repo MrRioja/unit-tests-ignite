@@ -1,4 +1,4 @@
-# Testes unitário - Ignite
+# Testes Unitários e Integração - Ignite
 
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=Unit&message=Tests&color=blueviolet&style=for-the-badge"/>
