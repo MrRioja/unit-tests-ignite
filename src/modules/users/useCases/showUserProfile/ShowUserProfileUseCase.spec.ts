@@ -27,7 +27,7 @@ describe("Show User Profile", () => {
 
   it("should not be able to show a non-existent user's profile", () => {
     expect(async () => {
-      await inMemoryUsersRepository.findById("id_test");
+      await showUserProfileUseCase.execute("id_test");
     }).rejects.toBeInstanceOf(ShowUserProfileError);
   });
 });
