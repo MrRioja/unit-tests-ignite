@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
-import { container } from 'tsyringe';
+import { Request, Response } from "express";
+import { container } from "tsyringe";
 
-import { CreateUserUseCase } from './CreateUserUseCase';
+import { CreateUserUseCase } from "./CreateUserUseCase";
 
 export class CreateUserController {
   async execute(request: Request, response: Response) {
@@ -9,12 +9,12 @@ export class CreateUserController {
 
     const createUser = container.resolve(CreateUserUseCase);
 
-    await createUser.execute({
+    const user = await createUser.execute({
       name,
       email,
-      password
+      password,
     });
 
-    return response.status(201).send();
+    return response.status(201).send(user);
   }
 }
