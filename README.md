@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="#sobre">Sobre</a> •
-  <a href="#testes-unitários">Testes Unitários</a> •
+  <a href="#testes-unitários-e-integração">Testes Unitários e Integração</a> •
   <a href="#instalação">Instalação</a> •
   <a href="#tecnologias">Tecnologias</a> •
   <a href="#autor">Autor</a>  
@@ -22,9 +22,55 @@
 
 Desafio proposto durante a trilha de NodeJS no bootcamp Ignite da RocketSeat. Esse desafio foi proposto no quarto capitulo da trilha e seu objetivo foi consolidar os conhecimentos ensinados durante o modulo 4 do curso.
 
-## Testes Unitários
+## Testes Unitários e Integração
 
-🚧 Em construção 🚧
+No quarto modulo do bootcamp o assunto foi a escrita de testes unitários e de integração. Fomos desde a contextualização geral dos testes até suas estruturas e boas práticas.
+
+Para realizar os testes utilizamos uma API financeira desenvolvida em módulos anteriores, que contém as seguintes rotas:
+
+<details>
+  <summary>POST <code>/api/v1/users</code></summary>
+  
+  A rota recebe `name`, `email` e `password` dentro do corpo da requisição, salva o usuário criado no banco e retorna uma resposta vazia com status `201`.
+
+</details>
+
+<details>
+  <summary>POST <code>/api/v1/sessions</code></summary>
+  A rota recebe `email` e `password` no corpo da requisição e retorna os dados do usuário autenticado junto à um token JWT.
+
+💡 Essa aplicação não possui refresh token, ou seja, o token criado dura apenas 1 dia e deve ser recriado após o período mencionado.
+
+</details>
+
+<details>
+  <summary>GET <code>/api/v1/profile</code></summary>
+  A rota recebe um token JWT pelo header da requisição e retorna as informações do usuário autenticado.
+</details>
+
+<details>
+  <summary>GET <code>/api/v1/statements/balance</code></summary>
+  A rota recebe um token JWT pelo header da requisição e retorna uma lista com todas as operações de depósito e saque do usuário autenticado e também o saldo total numa propriedade `balance`.
+</details>
+
+<details>
+  <summary>POST <code>/api/v1/statements/deposit</code></summary>
+  A rota recebe um token JWT pelo header e `amount` e `description` no corpo da requisição, registra a operação de depósito do valor e retorna as informações do depósito criado com status `201`.
+</details>
+
+<details>
+  <summary>POST <code>/api/v1/statements/withdraw</code></summary>
+  A rota recebe um token JWT pelo header e `amount` e `description` no corpo da requisição, registra a operação de saque do valor (caso o usuário possua saldo válido) e retorna as informações do saque criado com status `201`.
+</details>
+
+<details>
+  <summary>GET <code>/api/v1/statements/:statement_id</code></summary>
+  A rota recebe um token JWT pelo header e o id de uma operação registrada (saque ou depósito) na URL da rota e retorna as informações da operação encontrada.  
+</details>
+
+Por fim, deixo abaixo registrado o resultado da execução da bateria de testes implementada para a API:
+
+![Baterias de testes](readme/tests.png)
 
 ## Instalação
 
